@@ -15,10 +15,10 @@
   <link rel="icon" href="assets/heart.svg" type="image/svg+xml">
   <link rel="preload" href="assets/oranienbaum-400.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="assets/ceremoniusthree-600.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="config.js?v=local-mp3-3" defer></script>
-  <script src="js/app.js?v=local-mp3-3" defer></script>
+  <link rel="stylesheet" href="css/fonts.css?v=design4">
+  <link rel="stylesheet" href="css/styles.css?v=design4">
+  <script src="config.js?v=design4" defer></script>
+  <script src="js/app.js?v=design4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#invitation">К приглашению</a>
@@ -41,22 +41,25 @@
         <span id="music-label">Включить<br>музыку</span>
       </button>
       <p class="music-status" id="music-status" role="status"></p>
-      <img class="hero-flower sway" src="assets/hero-flower.png" width="320" height="372" alt="" fetchpriority="high">
     </header>
 
-    <section class="welcome" id="welcome" aria-labelledby="welcome-title">
-      <h2 class="welcome-title reveal" id="welcome-title"><span class="script">Дорогие</span><span class="welcome-family">родные<br>и друзья!</span></h2>
-      <p class="welcome-copy small-caps reveal">Совсем скоро состоится один из самых важных дней в нашей жизни — день нашей свадьбы.<br><br>Нам трудно представить этот момент без людей, которые занимают особое место в наших сердцах, поэтому мы будем счастливы разделить этот праздник вместе с вами.</p>
-      <div class="venue-info reveal">
-        <p class="wedding-date">5 июля<br><span>2027</span></p>
-        <div class="venue-details">
-          <h3>Вилла принца<br>Ольденбургского</h3>
-          <p>Санкт-Петербург,<br>набережная реки Малой Невки, 11</p>
-          <a class="text-link" href="https://yandex.ru/maps/org/villa_printsa_oldenburgskogo/18889025797" target="_blank" rel="noopener noreferrer">Посмотреть на карте <span aria-hidden="true">↗</span></a>
+    <div class="welcome-shell">
+      <img class="welcome-flower sway" src="assets/hero-flower.png" width="320" height="372" alt="" fetchpriority="high">
+      <section class="welcome" id="welcome" aria-labelledby="welcome-title">
+        <h2 class="welcome-title reveal" id="welcome-title"><span class="script">Дорогие</span><span class="welcome-family"><span>родные</span><span>и друзья!</span></span></h2>
+        <p class="welcome-copy small-caps reveal">Совсем скоро состоится один из самых важных дней в нашей жизни — день нашей свадьбы.</p>
+        <p class="welcome-copy small-caps reveal">Нам трудно представить этот момент без людей, которые занимают особое место в наших сердцах, поэтому мы будем счастливы разделить этот праздник вместе с вами.</p>
+        <div class="venue-info reveal">
+          <p class="wedding-date">5 июля 2027</p>
+          <div class="venue-details">
+            <h3>Вилла принца<br>Ольденбургского</h3>
+            <p>Санкт-Петербург, набережная реки Малой Невки, 11</p>
+            <a class="text-link" href="https://yandex.ru/maps/org/villa_printsa_oldenburgskogo/18889025797" target="_blank" rel="noopener noreferrer">Посмотреть на карте</a>
+          </div>
         </div>
-      </div>
-      <img class="venue-art reveal" src="assets/venue.svg" width="348" height="152" alt="" loading="lazy">
-    </section>
+        <img class="venue-art reveal" src="assets/venue.svg" width="348" height="152" alt="" loading="lazy">
+      </section>
+    </div>
 
     <section class="timing section" id="timing" aria-labelledby="timing-title">
       <h2 class="section-title reveal" id="timing-title">Тайминг</h2>
@@ -64,7 +67,7 @@
         <li class="schedule-item reveal">
           <h3><time datetime="2027-07-05T14:40:00+03:00">14:40</time><span>Сбор гостей</span></h3>
           <p class="small-caps">Сбор гостей во Дворце<br>бракосочетания № 1</p>
-          <a class="text-link" href="https://yandex.ru/maps/org/dvorets_brakosochetaniya_1/1311913400" target="_blank" rel="noopener noreferrer">Посмотреть на карте <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://yandex.ru/maps/org/dvorets_brakosochetaniya_1/1311913400" target="_blank" rel="noopener noreferrer">Посмотреть на карте</a>
         </li>
         <li class="schedule-item reveal">
           <h3><time datetime="2027-07-05T15:00:00+03:00">15:00</time><span>Церемония</span></h3>
@@ -110,10 +113,10 @@
 
     <section class="rsvp section" id="rsvp" aria-labelledby="rsvp-title">
       <div class="rsvp-heading reveal">
-        <h2 class="section-title" id="rsvp-title">Анкета<br>гостя</h2>
-        <img class="rsvp-photo" src="assets/rsvp-photo.webp" width="200" height="200" alt="Праздничная атмосфера свадьбы" loading="lazy">
+        <h2 class="section-title" id="rsvp-title">Анкета гостя</h2>
       </div>
       <p class="rsvp-copy small-caps reveal">Пожалуйста, подтвердите свое присутствие, заполнив форму на каждого приглашенного гостя отдельно <strong>до 10 ноября</strong>.</p>
+      <img class="rsvp-photo reveal" src="assets/rsvp-photo.webp" width="200" height="200" alt="Праздничная атмосфера свадьбы" loading="lazy">
       <noscript><p class="form-message">Для отправки анкеты включите JavaScript или свяжитесь с организатором по контактам ниже.</p></noscript>
       <form id="rsvp-form" class="rsvp-form" novalidate>
         <label class="visually-hidden" for="guest-name">Ваши имя и фамилия</label>
@@ -150,10 +153,10 @@
     </section>
 
     <footer class="contacts" id="contacts" aria-labelledby="contacts-title">
-      <h2 class="script reveal" id="contacts-title">если у вас<br>есть вопросы</h2>
+      <h2 class="contacts-title reveal" id="contacts-title">Если у вас есть<br>вопросы</h2>
       <p class="small-caps reveal">В день свадьбы или до по любым вопросам обращайтесь к нашему свадебному организатору</p>
       <div class="organizer reveal"><span>Полина</span><a href="tel:+79818224869">+7 (981) 822-48-69</a></div>
-      <div class="contact-actions reveal"><a class="text-link" href="tel:+79818224869">Позвонить</a><a class="text-link" href="https://t.me/polyana1313" target="_blank" rel="noopener noreferrer">Написать в TG <span aria-hidden="true">↗</span></a></div>
+      <div class="contact-actions reveal"><a class="text-link" href="tel:+79818224869">Позвонить</a><a class="text-link" href="https://t.me/polyana1313" target="_blank" rel="noopener noreferrer">Написать в TG</a></div>
       <p class="farewell script reveal">до встречи!</p>
       <img class="footer-art" src="assets/footer-art.svg" width="360" height="332" alt="" loading="lazy">
     </footer>
