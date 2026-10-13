@@ -1,0 +1,191 @@
+/* Цвета и основные размеры можно менять здесь. Никакого CSS zoom. */
+:root {
+  --paper: #fbf8f2;
+  --cream: #f2f0e7;
+  --olive: #9b946e;
+  --olive-dark: #77704f;
+  --rose: #bb9191;
+  --rose-dark: #b18083;
+  --footer: #938c66;
+  --body-font: 'ceremoniusthree', Arial, sans-serif;
+  --title-font: 'oranienbaum', Georgia, serif;
+  --page-width: 600px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--olive); font-family: var(--body-font); font-weight: 600; line-height: 1.55; }
+body.modal-open { overflow: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { cursor: pointer; }
+a { color: inherit; }
+a, button, input { outline-offset: 5px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--olive-dark); }
+button { color: inherit; }
+[hidden] { display: none !important; }
+h1, h2, h3, p, ol, ul { margin: 0; }
+fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
+.invitation { width: 100%; max-width: var(--page-width); margin-inline: auto; }
+.invitation > *, .venue-info > *, .rsvp-heading > * { min-width: 0; }
+.small-caps { font-size: clamp(12px, 2.95vw, 14px); line-height: 1.55; text-transform: uppercase; letter-spacing: -0.03em; overflow-wrap: break-word; }
+.script { font-family: 'ceremoniusthree', cursive; font-weight: 400; line-height: 0.95; text-transform: none; letter-spacing: normal; }
+.section { padding-inline: clamp(22px, 6vw, 46px); text-align: center; }
+.section-title { font-family: var(--title-font); font-weight: 400; font-size: clamp(38px, 9.5vw, 48px); line-height: 1.05; text-transform: uppercase; }
+.skip-link { position: absolute; z-index: 50; top: 12px; left: 12px; padding: 10px 18px; background: var(--cream); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Две независимые полосы обрезают только свой декоративный контент. */
+.ribbon { overflow: hidden; background: var(--rose); color: var(--cream); padding-block: 7px; }
+.ribbon-track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+.ribbon-track > span { flex: none; white-space: nowrap; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.hero { position: relative; min-height: 760px; padding: clamp(100px, 28vw, 135px) 22px 180px; text-align: center; isolation: isolate; }
+.couple-names { font-family: var(--title-font); font-weight: 400; font-size: clamp(48px, 13vw, 72px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.02em; }
+.couple-names span { display: block; }
+.hero-heart { width: clamp(82px, 23vw, 110px); margin: 25px auto 0; }
+.hero-invitation { margin: 28px auto 0; }
+.music-button { position: relative; z-index: 1; display: grid; align-content: center; justify-items: center; gap: 3px; width: 88px; height: 88px; padding: 7px; border: 0; border-radius: 50%; margin: 36px auto 0; color: var(--cream); background: var(--olive); font-size: 9px; line-height: 1.25; text-transform: uppercase; }
+.music-button:hover { background: var(--olive-dark); }
+.music-button[aria-pressed="true"] .music-symbol { animation: music-pulse 1.5s ease-in-out infinite; }
+.music-symbol { font-family: Georgia, serif; font-size: 23px; line-height: 1; }
+.music-status { position: relative; z-index: 2; font-size: 12px; max-width: 280px; margin: 12px auto 0; }
+.music-status:empty { display: none; }
+.hero-flower { position: absolute; width: 51%; max-width: 265px; right: 0; bottom: -33px; z-index: 2; pointer-events: none; }
+/* Обрезаем лишь края анимированных декоративных картинок, без скрытия текста всей страницы. */
+.hero, .dress { overflow-x: clip; }
+.sway { transform-origin: 60% 65%; animation: sway 5s ease-in-out infinite alternate; }
+@keyframes sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes music-pulse { 50% { transform: scale(0.8); } }
+
+.welcome { position: relative; background: var(--rose); color: var(--cream); padding: 70px clamp(24px, 6vw, 48px) 44px; }
+.welcome-title { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 32px; }
+.welcome-title .script { font-size: clamp(62px, 17vw, 90px); transform: rotate(-8deg); }
+.welcome-family { font-family: var(--title-font); font-size: clamp(32px, 8vw, 43px); font-weight: 400; line-height: 1.06; text-align: right; text-transform: uppercase; }
+.welcome-copy { max-width: 400px; margin-inline: auto; }
+.venue-info { display: grid; grid-template-columns: 0.8fr 1.8fr; align-items: start; gap: 20px; margin-top: 44px; }
+.wedding-date { font-family: var(--title-font); font-weight: 400; font-size: clamp(30px, 7.5vw, 42px); line-height: 1; white-space: nowrap; }
+.wedding-date span { font-size: 0.78em; }
+.venue-details h3 { font-family: var(--title-font); font-size: clamp(23px, 5.65vw, 30px); font-weight: 400; line-height: 1.05; text-transform: uppercase; }
+.venue-details p { font-size: 12px; line-height: 1.5; margin-top: 14px; }
+.venue-details .text-link { display: inline-block; margin-top: 14px; }
+.text-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-bottom: 1px solid currentColor; padding: 5px 0; background: none; font-size: 10px; line-height: 1.4; text-transform: uppercase; text-decoration: none; }
+.text-link:hover { opacity: 0.75; }
+.venue-art { width: 100%; max-width: 450px; margin: 28px auto 0; }
+
+.timing { padding-top: 78px; padding-bottom: 54px; }
+.schedule { padding: 0; list-style: none; margin-top: 45px; }
+.schedule-item + .schedule-item { margin-top: 52px; }
+.schedule-item h3 { font-family: var(--title-font); font-size: clamp(27px, 7.3vw, 34px); font-weight: 400; line-height: 1.06; text-transform: uppercase; }
+.schedule-item time, .schedule-item h3 span { display: block; }
+.schedule-item p { max-width: 355px; margin: 17px auto 0; }
+.schedule-item .text-link { margin-top: 12px; }
+.timing-art { width: 80%; max-width: 320px; margin: 42px auto 0; }
+
+.dress { position: relative; padding-top: 70px; padding-bottom: 156px; isolation: isolate; }
+.dress-title { display: grid; justify-items: center; }
+.dress-title .script { font-size: clamp(76px, 21vw, 104px); margin-top: -6px; }
+.dress-copy { max-width: 390px; margin: 27px auto 0; }
+.pill-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; max-width: 100%; border: 0; border-radius: 999px; padding: 12px 27px; background: var(--rose); color: var(--cream); font-size: 11px; line-height: 1.4; text-transform: uppercase; text-decoration: none; transition: background-color 0.2s; }
+.pill-button:hover { background: var(--rose-dark); }
+.pill-button:disabled { cursor: wait; opacity: 0.7; }
+.references-button { margin-top: 25px; }
+.palette-block { position: relative; z-index: 1; margin-top: 35px; }
+.palette-block h3 { font-family: var(--title-font); font-size: 27px; font-weight: 400; text-transform: uppercase; line-height: 1.2; }
+.palette { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px; max-width: 320px; list-style: none; padding: 0; margin: 17px auto 0; }
+.palette li { width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--swatch); }
+.dress-flower { position: absolute; bottom: -10px; left: 0; width: 42%; max-width: 215px; z-index: 0; pointer-events: none; }
+
+.rsvp { position: relative; padding-top: 35px; padding-bottom: 75px; }
+.rsvp-heading { display: flex; align-items: center; justify-content: center; gap: 27px; text-align: left; }
+.rsvp-photo { width: 105px; height: 105px; object-fit: cover; border-radius: 50%; }
+.rsvp-copy { max-width: 370px; margin: 32px auto; }
+.rsvp-copy strong { font-weight: inherit; white-space: nowrap; }
+.rsvp-form { max-width: 380px; margin-inline: auto; text-align: left; }
+.rsvp-form input[type="text"] { display: block; width: 100%; min-width: 0; min-height: 46px; border: 1px solid var(--olive); border-radius: 999px; padding: 10px 18px; background: transparent; color: var(--olive-dark); font-family: var(--body-font); font-weight: 600; font-size: 16px; line-height: 1.5; }
+.rsvp-form input::placeholder { color: var(--olive); opacity: 0.75; }
+.rsvp-form fieldset { margin-top: 30px; }
+.rsvp-form legend { width: 100%; font-size: 17px; line-height: 1.4; margin-bottom: 14px; }
+.choice { display: flex; gap: 10px; align-items: flex-start; min-height: 30px; padding: 4px 0; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.choice input { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; flex: 0 0 20px; border: 1.5px solid var(--olive); background: transparent; margin: 0; position: relative; }
+.choice input[type="radio"] { border-radius: 50%; }
+.choice input[type="radio"]:checked::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--olive); }
+.choice input[type="checkbox"] { border-radius: 3px; }
+.choice input[type="checkbox"]:checked::after { content: ''; position: absolute; width: 6px; height: 11px; border: solid var(--olive); border-width: 0 2px 2px 0; top: 1px; left: 5px; transform: rotate(45deg); }
+.choice span { min-width: 0; overflow-wrap: anywhere; }
+#own-drink-wrap { margin-top: 8px; }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.submit-button { width: 100%; margin-top: 30px; }
+.form-message, .field-error { margin-top: 12px; font-size: 13px; line-height: 1.5; }
+.form-message:empty { display: none; }
+.field-error, .form-message[data-kind="error"] { color: #954f57; }
+.form-success { max-width: 380px; margin: 0 auto; padding-block: 35px; }
+.success-heart { font-family: Georgia, serif; font-size: 68px; color: var(--rose); }
+.form-success h3 { font-family: var(--title-font); font-size: 33px; font-weight: 400; line-height: 1.15; }
+.form-success p { margin: 15px 0 25px; font-size: 14px; }
+
+.contacts { position: relative; background: var(--footer); color: var(--cream); text-align: center; padding: 62px 25px 54px; isolation: isolate; overflow: hidden; }
+.contacts h2 { font-size: clamp(63px, 17vw, 87px); }
+.contacts > p.small-caps { max-width: 340px; margin: 30px auto 0; position: relative; z-index: 1; }
+.organizer { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 14px; margin-top: 35px; position: relative; z-index: 1; }
+.organizer span { font-family: var(--title-font); font-size: 28px; font-weight: 400; }
+.organizer a { font-size: 15px; text-decoration: none; }
+.contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 34px; margin-top: 20px; position: relative; z-index: 1; }
+.farewell { position: relative; z-index: 1; font-size: 73px; margin-top: 52px; }
+.footer-art { position: absolute; inset: auto 0 0; width: 100%; opacity: 0.14; z-index: -1; pointer-events: none; }
+
+/* Диалог работает нативно, включая Escape и управление фокусом. */
+.references-dialog { width: min(92vw, 520px); max-width: calc(100% - 24px); max-height: calc(100dvh - 32px); padding: 35px 20px 27px; border: 0; border-radius: 12px; background: var(--paper); color: var(--olive); overflow: auto; overscroll-behavior: contain; }
+.references-dialog::backdrop { background: rgb(39 35 27 / 68%); backdrop-filter: blur(4px); }
+.dialog-close { position: absolute; z-index: 2; right: 8px; top: 5px; width: 44px; height: 44px; border: 0; background: none; font-family: Arial, sans-serif; font-size: 34px; line-height: 1; }
+.reference-picker { display: grid; gap: 17px; justify-items: center; text-align: center; padding: 13px 10px 8px; }
+.picker-heart { width: 100px; animation: music-pulse 1.6s ease-in-out infinite; }
+.reference-picker h2, .reference-gallery h2 { font-family: var(--title-font); font-weight: 400; font-size: 34px; line-height: 1.1; text-transform: uppercase; }
+.reference-picker p { font-size: 13px; }
+.reference-picker .pill-button { min-width: 180px; }
+.reference-gallery { text-align: center; }
+.gallery-back { margin: 2px 0 18px; }
+.reference-gallery h2 { font-size: 24px; }
+.gallery-stage { display: grid; grid-template-columns: 35px minmax(0, 1fr) 35px; align-items: center; gap: 3px; margin-top: 16px; touch-action: pan-y pinch-zoom; }
+.gallery-stage img { width: 100%; height: min(62dvh, 550px); object-fit: contain; background: var(--paper); }
+.gallery-arrow { width: 35px; height: 48px; border: 0; padding: 0; background: none; font-family: Georgia, serif; font-size: 42px; }
+.gallery-counter { min-height: 21px; font-size: 12px; margin-top: 12px; }
+.gallery-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; margin-top: 4px; }
+.gallery-dots button { display: grid; place-items: center; border: 0; padding: 0; width: 24px; height: 26px; background: none; }
+.gallery-dots button::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #ead2d2; }
+.gallery-dots button[aria-current="true"]::after { background: var(--rose-dark); }
+
+.loader-overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--paper); opacity: 1; transition: opacity 0.25s; pointer-events: none; }
+.loader-overlay.is-finished { opacity: 0; }
+.loader-ring { width: 48px; height: 48px; border: 5px dotted var(--rose-dark); border-radius: 50%; animation: spin 2s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.can-reveal .reveal:not(.is-visible) { opacity: 0; transform: translateY(18px); }
+.can-reveal .reveal { transition: opacity 0.65s ease, transform 0.65s ease; }
+
+@media (min-width: 700px) {
+  body { padding: 28px 18px; background: #ede9e1; }
+  .invitation { background: var(--paper); box-shadow: 0 8px 70px rgb(85 71 56 / 7%); }
+  .hero { min-height: 860px; }
+  .welcome { padding-top: 88px; }
+  .timing { padding-top: 88px; }
+}
+@media (max-width: 359px) {
+  .hero { min-height: 710px; padding-top: 90px; }
+  .couple-names { font-size: 44px; }
+  .welcome { padding-inline: 21px; }
+  .welcome-title { gap: 4px; }
+  .welcome-title .script { font-size: 58px; }
+  .welcome-family { font-size: 30px; }
+  .venue-info { gap: 12px; grid-template-columns: 0.7fr 1.8fr; }
+  .venue-details h3 { font-size: 21px; }
+  .palette { gap: 6px; }
+  .rsvp-heading { gap: 18px; }
+  .rsvp-photo { width: 87px; height: 87px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .can-reveal .reveal:not(.is-visible) { opacity: 1; transform: none; }
+}
