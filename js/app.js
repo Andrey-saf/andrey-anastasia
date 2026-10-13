@@ -29,63 +29,101 @@
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   }
 
-  // Музыка стартует только после нажатия — это нужно на iPhone.
+  // Музыка запускается непосредственно из нажатия; повтор использует основной файл.
   const audio = byId('bg-music');
   const musicButton = byId('music-button');
   const musicLabel = byId('music-label');
   const musicStatus = byId('music-status');
-  const musicSources = (config.musicSources || []).filter(Boolean);
-  let sourceIndex = 0;
+  const primaryMusicSource = 'assets/music.mp3';
   let wantsMusic = false;
-  let musicPending = false;
-  function showMusicState() {
-    const playing = !audio.paused;
-    musicButton.setAttribute('aria-pressed', String(playing));
-    musicLabel.innerHTML = playing ? 'Выключить<br>музыку' : 'Включить<br>музыку';
+  let musicState = 'paused';
+  let musicAttempt = 0;
+  let musicTimeout;
+  let needsMusicReload = false;
+
+  function prepareMusicSource(retry = false) {
+    const url = new URL(primaryMusicSource, location.href);
+    // Обходим закешированный 404, если MP3 появился после первого открытия сайта.
+    url.searchParams.set('music', retry ? String(Date.now()) : 'local-mp3-3');
+    audio.preload = 'metadata';
+    audio.src = url.href;
   }
-  async function startMusic() {
-    if (!musicSources.length) {
-      musicStatus.textContent = 'Музыка пока недоступна.';
+  prepareMusicSource();
+
+  function showMusicState() {
+    const playing = musicState === 'playing';
+    const pending = musicState === 'loading';
+    musicButton.setAttribute('aria-pressed', String(playing));
+    if (pending) musicButton.setAttribute('aria-busy', 'true');
+    else musicButton.removeAttribute('aria-busy');
+    musicLabel.innerHTML = playing ? 'Выключить<br>музыку' : pending ? 'Отмена<br>загрузки' : 'Включить<br>музыку';
+  }
+  function failMusic(error, attempt) {
+    if (attempt !== musicAttempt || !wantsMusic) return;
+    clearTimeout(musicTimeout);
+    wantsMusic = false;
+    musicAttempt += 1;
+    musicState = 'paused';
+    needsMusicReload = true;
+    audio.pause();
+    musicStatus.textContent = error?.name === 'NotAllowedError'
+      ? 'Браузер не разрешил запуск. Нажмите «Включить музыку» ещё раз или откройте приглашение в Safari.'
+      : 'Не удалось запустить музыку. Проверьте интернет и нажмите кнопку ещё раз.';
+    showMusicState();
+  }
+  function markMusicPlaying(attempt) {
+    if (attempt !== musicAttempt || !wantsMusic) return;
+    clearTimeout(musicTimeout);
+    musicState = 'playing';
+    needsMusicReload = false;
+    musicStatus.textContent = '';
+    showMusicState();
+  }
+  musicButton.addEventListener('click', () => {
+    if (wantsMusic || musicState === 'playing') {
+      wantsMusic = false;
+      musicAttempt += 1;
+      clearTimeout(musicTimeout);
+      musicState = 'paused';
+      audio.pause();
+      musicStatus.textContent = '';
+      showMusicState();
       return;
     }
-    if (!audio.getAttribute('src')) audio.src = musicSources[sourceIndex];
-    try {
-      await audio.play();
-      if (!wantsMusic) audio.pause();
-      musicStatus.textContent = '';
-    } catch (error) {
-      if (!wantsMusic) return;
-      if (error.name !== 'NotAllowedError' && sourceIndex + 1 < musicSources.length) {
-        sourceIndex += 1;
-        audio.src = musicSources[sourceIndex];
-        return startMusic();
-      }
-      wantsMusic = false;
-      musicStatus.textContent = error.name === 'NotAllowedError'
-        ? 'Нажмите кнопку ещё раз, чтобы включить музыку.'
-        : 'Музыка пока недоступна. Вы можете продолжить просмотр приглашения.';
-    } finally {
-      showMusicState();
+    if (needsMusicReload || audio.error) {
+      prepareMusicSource(true);
+      audio.load();
     }
-  }
-  musicButton.addEventListener('click', async () => {
-    if (musicPending) return;
-    if (!audio.paused) { wantsMusic = false; audio.pause(); return; }
     wantsMusic = true;
-    musicPending = true;
-    musicButton.setAttribute('aria-busy', 'true');
-    try { await startMusic(); }
-    finally { musicPending = false; musicButton.removeAttribute('aria-busy'); }
+    musicState = 'loading';
+    const attempt = ++musicAttempt;
+    musicStatus.textContent = 'Загружаем музыку…';
+    showMusicState();
+    musicTimeout = setTimeout(() => failMusic({ name: 'TimeoutError' }, attempt), 20000);
+    try {
+      audio.muted = false;
+      // До play() нет await или сетевого запроса: сохраняется жест пользователя.
+      const result = audio.play();
+      if (result && typeof result.then === 'function') {
+        result.then(() => markMusicPlaying(attempt), error => failMusic(error, attempt));
+      }
+    } catch (error) {
+      failMusic(error, attempt);
+    }
   });
-  audio.addEventListener('play', showMusicState);
-  audio.addEventListener('pause', showMusicState);
-  audio.addEventListener('error', () => {
-    if (!musicPending && wantsMusic) {
+  audio.addEventListener('playing', () => markMusicPlaying(musicAttempt));
+  audio.addEventListener('pause', () => {
+    if (musicState === 'playing') {
       wantsMusic = false;
-      musicStatus.textContent = 'Не удалось загрузить музыку. Попробуйте включить её ещё раз.';
+      musicState = 'paused';
+      clearTimeout(musicTimeout);
       showMusicState();
     }
   });
+  audio.addEventListener('error', () => {
+    if (audio.error) failMusic(audio.error, musicAttempt);
+  });
+
 
   // Один нативный диалог: выбор категории, затем галерея со свайпами.
   const dialog = byId('references-dialog');
