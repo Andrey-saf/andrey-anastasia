@@ -2,7 +2,7 @@
 window.WEDDING_CONFIG = {
   // Вставьте URL опубликованного Google Apps Script, заканчивающийся на /exec.
   // Пошаговое подключение описано в README.html и google-apps-script/Code.gs.
-  formEndpoint: '',
+  formEndpoint: 'https://script.google.com/macros/s/AKfycbyhR1bvY0CCgQjhgEyGV1mKcAmqL0AVZvqRuvat8kaBKNZsLbE-Y4az03a6erKnYihPCw/exec',
 
   // Положите MP3 в assets/music.mp3. Исходная Dropbox-ссылка сохранена резервной.
   musicSources: [
