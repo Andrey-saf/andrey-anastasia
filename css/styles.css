@@ -226,3 +226,13 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .contacts-title {
   font-size: clamp(30.8px, 8.58vw, 48.4px);
 }
+.welcome-title .script {
+  font-size: clamp(65.6px, 18vw, 111.2px);
+  margin-top: -12px;
+}
+
+@media (max-width: 359px) {
+  .welcome-title .script {
+    font-size: 58.4px;
+  }
+}
