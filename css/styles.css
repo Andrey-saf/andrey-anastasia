@@ -66,8 +66,8 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .welcome-shell { position: relative; }
 .welcome { position: relative; background: var(--rose); color: var(--cream); padding: calc(var(--arch-radius) * 0.88) clamp(24px, 6vw, 48px) calc(var(--arch-radius) * 0.4); border-radius: 50% 50% 50% 50% / var(--arch-radius) var(--arch-radius) var(--arch-radius) var(--arch-radius); }
 .welcome-title { display: grid; grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr); align-items: start; gap: clamp(4px, 1vw, 8px); margin-bottom: 34px; }
-.welcome-title .script { font-size: clamp(58px, 16vw, 96px); transform: rotate(-7deg); margin-top: -5px; white-space: nowrap; }
-.welcome-family { font-family: var(--title-font); font-size: clamp(32px, 8vw, 48px); font-weight: 700; line-height: 1.2; text-align: right; text-transform: uppercase; letter-spacing: normal; }
+.welcome-title .script { font-size: clamp(69.6px, 19.2vw, 115.2px);transform: none; margin-top: -5px; white-space: nowrap; }
+.welcome-family { font-family: var(--title-font); font-size: clamp(38.4px, 9.6vw, 57.6px); font-weight: 700; line-height: 1.2; text-align: right; text-transform: uppercase; letter-spacing: normal; }
 .welcome-family span { display: block; white-space: nowrap; }
 .welcome-copy { margin-inline: auto; text-align: left; }
 .welcome-copy + .welcome-copy { margin-top: 24px; }
@@ -183,8 +183,8 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   .couple-names { font-size: 44px; }
   .welcome { padding-inline: 21px; }
   .welcome-title { gap: 4px; }
-  .welcome-title .script { font-size: 52px; }
-  .welcome-family { font-size: 30px; }
+  .welcome-title .script { font-size: 62.4px; }
+  .welcome-family { font-size: 36px; }
   .venue-details { width: 70%; }
   .venue-details h3 { font-size: 23px; }
   .palette { gap: 6px; }
