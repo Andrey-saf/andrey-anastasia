@@ -92,7 +92,11 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 
 .dress { position: relative; padding-top: 70px; padding-bottom: 156px; isolation: isolate; }
 .dress-title { display: grid; justify-items: center; }
-.dress-title .script { font-size: clamp(76px, 21vw, 104px); margin-top: -6px; }
+.dress-title .script {
+  font-size: clamp(60.8px, 16.8vw, 83.2px);
+  margin-top: -6px;
+  color: var(--rose);
+}
 .dress-copy { max-width: 390px; margin: 27px auto 0; }
 .pill-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; max-width: 100%; border: 0; border-radius: 999px; padding: 12px 27px; background: var(--rose); color: var(--cream); font-size: 11px; line-height: 1.4; text-transform: uppercase; text-decoration: none; letter-spacing: var(--caps-tracking); transition: background-color 0.2s; }
 .pill-button:hover { background: var(--rose-dark); }
