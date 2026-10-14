@@ -113,7 +113,7 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .palette li { width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--swatch); }
 .dress-flower {
   position: absolute;
-  bottom: 60px;
+  bottom: -70px;
   left: -35px;
   width: 50.4%;
   max-width: 258px;
