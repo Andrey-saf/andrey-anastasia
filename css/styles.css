@@ -111,7 +111,15 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .palette-block h3 { font-family: var(--title-font); font-size: 27px; font-weight: 700; text-transform: uppercase; line-height: 1.2; letter-spacing: normal; }
 .palette { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px; max-width: 320px; list-style: none; padding: 0; margin: 17px auto 0; }
 .palette li { width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--swatch); }
-.dress-flower { position: absolute; bottom: -10px; left: 0; width: 42%; max-width: 215px; z-index: 0; pointer-events: none; }
+.dress-flower {
+  position: absolute;
+  bottom: -30px;
+  left: -35px;
+  width: 50.4%;
+  max-width: 258px;
+  z-index: 3;
+  pointer-events: none;
+}
 
 .rsvp { position: relative; padding-top: 35px; padding-bottom: 75px; }
 .rsvp-heading { text-align: center; }
