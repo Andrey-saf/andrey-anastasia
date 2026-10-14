@@ -64,7 +64,7 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 @keyframes music-pulse { 50% { transform: scale(0.8); } }
 
 .welcome-shell { position: relative; }
-.welcome { position: relative; background: var(--rose); color: var(--cream); padding: calc(var(--arch-radius) * 0.88) clamp(24px, 6vw, 48px) calc(var(--arch-radius) * 0.4); border-radius: 50% 50% 50% 50% / var(--arch-radius) var(--arch-radius) var(--arch-radius) var(--arch-radius); }
+.welcome { position: relative; background: var(--rose); color: var(--cream); padding: calc(var(--arch-radius) * 0.8) clamp(24px, 6vw, 48px) calc(var(--arch-radius) * 0.4); border-radius: 50% 50% 50% 50% / var(--arch-radius) var(--arch-radius) var(--arch-radius) var(--arch-radius); }
 .welcome-title { display: grid; grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr); align-items: start; gap: clamp(4px, 1vw, 8px); margin-bottom: 34px; }
 .welcome-title .script { font-size: clamp(69.6px, 19.2vw, 115.2px);transform: none; margin-top: -5px; white-space: nowrap; }
 .welcome-family { font-family: var(--title-font); font-size: clamp(38.4px, 9.6vw, 57.6px); font-weight: 700; line-height: 1.2; text-align: right; text-transform: uppercase; letter-spacing: normal; }
@@ -74,8 +74,8 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .venue-info { display: block; margin-top: 40px; }
 .wedding-date { font-family: var(--title-font); font-weight: 700; font-size: clamp(30px, 8vw, 44px); line-height: 1.05; text-transform: uppercase; letter-spacing: normal; }
 .venue-details { width: 68%; margin: 22px 0 0 auto; }
-.venue-details h3 { font-family: var(--title-font); font-size: clamp(23px, 6.3vw, 36px); font-weight: 700; line-height: 1.08; text-transform: uppercase; letter-spacing: normal; }
-.venue-details p { font-size: 12px; line-height: 1.45; margin-top: 14px; letter-spacing: var(--caps-tracking); }
+.venue-details h3 { font-family: var(--title-font); font-size: clamp(30px, 8vw, 44px); font-weight: 700; line-height: 1.08; text-transform: uppercase; letter-spacing: normal; }
+.venue-details p { font-size: 14px; line-height: 1.45; margin-top: 14px; letter-spacing: var(--caps-tracking); }
 .venue-details .text-link { margin-top: 16px; padding-inline: 15px; font-size: 9px; background: var(--cream); color: var(--rose); }
 .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; max-width: 100%; border: 0; border-radius: 999px; padding: 11px 22px; background: var(--rose); color: var(--cream); font-size: 10px; line-height: 1.4; text-align: center; text-transform: uppercase; text-decoration: none; letter-spacing: var(--caps-tracking); }
 .text-link:hover { filter: brightness(0.96); }
