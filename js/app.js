@@ -362,4 +362,19 @@
     formMessage('');
     byId('guest-name').focus();
   });
+  // Не оставлять предлоги в конце строки.
+const textWalker = document.createTreeWalker(
+  document.querySelector('.invitation'),
+  NodeFilter.SHOW_TEXT
+);
+
+while (textWalker.nextNode()) {
+  const node = textWalker.currentNode;
+  if (node.parentElement.closest('script, style, textarea')) continue;
+
+  node.nodeValue = node.nodeValue.replace(
+    /(^|[\s])(из-за|из-под|без|для|через|между|перед|под|над|при|про|во|со|ко|обо|об|от|до|из|за|по|на|в|с|к|у|о)[ \t]+(?=\S)/giu,
+    '$1$2\u00A0'
+  );
+}
 })();
