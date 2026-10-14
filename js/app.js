@@ -56,7 +56,7 @@
     musicButton.setAttribute('aria-pressed', String(playing));
     if (pending) musicButton.setAttribute('aria-busy', 'true');
     else musicButton.removeAttribute('aria-busy');
-    musicLabel.innerHTML = playing ? 'Выключить<br>музыку' : pending ? 'Отмена<br>загрузки' : 'Включить<br>музыку';
+    musicLabel.innerHTML = playing ? 'Выключить<br>музыку' : 'Включить<br>музыку';
   }
   function failMusic(error, attempt) {
     if (attempt !== musicAttempt || !wantsMusic) return;
