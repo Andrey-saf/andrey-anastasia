@@ -97,11 +97,16 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   margin-top: -6px;
   color: var(--rose);
 }
-.dress-copy { max-width: 390px; margin: 27px auto 0; }
+.dress-copy {
+  width: 100%;
+  max-width: 390px;
+  margin: 26px auto 0;
+  text-align: center;
+}
 .pill-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; max-width: 100%; border: 0; border-radius: 999px; padding: 12px 27px; background: var(--rose); color: var(--cream); font-size: 11px; line-height: 1.4; text-transform: uppercase; text-decoration: none; letter-spacing: var(--caps-tracking); transition: background-color 0.2s; }
 .pill-button:hover { background: var(--rose-dark); }
 .pill-button:disabled { cursor: wait; opacity: 0.7; }
-.references-button { margin-top: 25px; }
+.references-button { margin-top: 26px; }
 .palette-block { position: relative; z-index: 1; margin-top: 35px; }
 .palette-block h3 { font-family: var(--title-font); font-size: 27px; font-weight: 700; text-transform: uppercase; line-height: 1.2; letter-spacing: normal; }
 .palette { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px; max-width: 320px; list-style: none; padding: 0; margin: 17px auto 0; }
