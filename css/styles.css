@@ -159,7 +159,7 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .contact-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; position: relative; z-index: 1; }
 .contact-actions .text-link { width: 100%; padding-inline: 10px; background: var(--cream); color: var(--footer); }
 .farewell { position: relative; z-index: 1; font-size: clamp(60px, 16vw, 86px); margin-top: 38px; }
-.footer-art { position: absolute; left: -8%; bottom: -20px; width: 115%; max-width: none; opacity: 0.24; z-index: -1; pointer-events: none; }
+.footer-art { position: absolute; left: -8%; bottom: -20px; width: 115%; max-width: none; opacity: 0.312; z-index: -1; pointer-events: none; }
 
 /* Диалог работает нативно, включая Escape и управление фокусом. */
 .references-dialog { width: min(92vw, 520px); max-width: calc(100% - 24px); max-height: calc(100dvh - 32px); padding: 35px 20px 27px; border: 0; border-radius: 12px; background: var(--paper); color: var(--olive); overflow: auto; overscroll-behavior: contain; }
@@ -218,4 +218,11 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 
 .music-button .music-symbol {
   animation: none !important;
+}
+.contacts {
+  padding-top: calc(var(--arch-radius) * 0.5 + 8px);
+}
+
+.contacts-title {
+  font-size: clamp(30.8px, 8.58vw, 48.4px);
 }
