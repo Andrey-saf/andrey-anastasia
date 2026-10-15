@@ -5,6 +5,30 @@
 <link rel="preload" href="assets/oranienbaum-400.woff" as="font" type="font/woff" crossorigin>
 <head>
   <meta charset="utf-8">
+  <style>
+  html.invitation-ready #loader {
+    display: none !important;
+  }
+</style>
+
+<script>
+(() => {
+  let done = false;
+  let timer;
+
+  window.showInvitation = () => {
+    if (done) return;
+    done = true;
+    clearTimeout(timer);
+    document.documentElement.classList.add('invitation-ready');
+  };
+
+  timer = setTimeout(
+    window.showInvitation,
+    Math.max(0, 10000 - performance.now())
+  );
+})();
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf8f2">
   <meta name="description" content="Андрей и Анастасия. Приглашаем вас разделить наш свадебный день — 5 июля 2027 года, Санкт-Петербург.">
