@@ -4,16 +4,50 @@
   const config = window.WEDDING_CONFIG || {};
   const byId = id => document.getElementById(id);
 
-  // Не блокируем приглашение, даже если ресурс не загрузился.
-  const loader = byId('loader');
-  loader.hidden = false;
-  Promise.race([
-    document.fonts ? document.fonts.ready : Promise.resolve(),
-    new Promise(resolve => setTimeout(resolve, 1400))
-  ]).then(() => {
-    loader.classList.add('is-finished');
-    setTimeout(() => { loader.hidden = true; }, 260);
+// Показываем страницу после загрузки шрифтов и картинок.
+const loader = byId('loader');
+loader.hidden = false;
+
+async function prepareInvitation() {
+  const fontsReady = document.fonts
+    ? Promise.all([
+        document.fonts.load('600 16px "ceremoniusthree"', 'Андрей'),
+        document.fonts.load('400 16px "ceremoniusthree"', 'Дорогие'),
+        document.fonts.load('700 32px "Wedding Oranienbaum"', 'Тайминг')
+      ]).then(() => document.fonts.ready)
+    : Promise.resolve();
+
+  const imagesReady = [
+    ...document.querySelectorAll('.invitation img')
+  ].map(async image => {
+    image.loading = 'eager';
+
+    if (!image.complete) {
+      await new Promise(resolve => {
+        image.addEventListener('load', resolve, { once: true });
+        image.addEventListener('error', resolve, { once: true });
+      });
+    }
+
+    if (image.decode && image.naturalWidth) {
+      await image.decode().catch(() => {});
+    }
   });
+
+  await Promise.allSettled([fontsReady, ...imagesReady]);
+
+  // Даём браузеру применить шрифты и пересчитать расположение.
+  await new Promise(resolve => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  });
+
+  loader.classList.add('is-finished');
+  setTimeout(() => {
+    loader.hidden = true;
+  }, 550);
+}
+
+prepareInvitation();  
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !reducedMotion) {
