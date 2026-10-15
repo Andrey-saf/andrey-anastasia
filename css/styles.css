@@ -279,3 +279,28 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   background: transparent !important;
   -webkit-tap-highlight-color: transparent;
 }
+
+
+
+
+
+.welcome-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: 16px;
+  row-gap: 8px;
+}
+
+.welcome-title .script {
+  flex: 0 0 auto;
+  margin-top: 0;
+  transform: none;
+}
+
+.welcome-family {
+  flex: 0 0 auto;
+  position: static;
+  margin-left: auto;
+}
