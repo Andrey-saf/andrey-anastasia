@@ -406,7 +406,7 @@ while (textWalker.nextNode()) {
   const b = family.getBoundingClientRect();
 
   // Небольшой запас сверх требуемых 16 px.
-  const scale = (b.right - a.left - 18) / (a.width + b.width);
+  const scale = (b.right - a.left - 9) / (a.width + b.width);
 
   if (scale > 0 && scale < 1) {
     dear.style.fontSize = `${dearSize * scale}px`;
