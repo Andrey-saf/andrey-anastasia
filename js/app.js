@@ -4,51 +4,26 @@
   const config = window.WEDDING_CONFIG || {};
   const byId = id => document.getElementById(id);
 
-// Показываем страницу после загрузки шрифтов и картинок.
-const loader = byId('loader');
-loader.hidden = false;
+// Ждём только основные шрифты и картинки верхней части страницы.
+const fontsReady = document.fonts
+  ? Promise.allSettled([
+      document.fonts.load('600 16px "ceremoniusthree"', 'Андрей'),
+      document.fonts.load('400 16px "ceremoniusthree"', 'Дорогие'),
+      document.fonts.load('700 32px "Wedding Oranienbaum"', 'Тайминг')
+    ])
+  : Promise.resolve();
 
-async function prepareInvitation() {
-  const fontsReady = document.fonts
-    ? Promise.all([
-        document.fonts.load('600 16px "ceremoniusthree"', 'Андрей'),
-        document.fonts.load('400 16px "ceremoniusthree"', 'Дорогие'),
-        document.fonts.load('700 32px "Wedding Oranienbaum"', 'Тайминг')
-      ]).then(() => document.fonts.ready)
+const imagesReady = [
+  ...document.querySelectorAll('.hero img, .welcome-flower')
+].map(image => {
+  image.loading = 'eager';
+  return image.decode
+    ? image.decode().catch(() => {})
     : Promise.resolve();
+});
 
-  const imagesReady = [
-    ...document.querySelectorAll('.invitation img')
-  ].map(async image => {
-    image.loading = 'eager';
-
-    if (!image.complete) {
-      await new Promise(resolve => {
-        image.addEventListener('load', resolve, { once: true });
-        image.addEventListener('error', resolve, { once: true });
-      });
-    }
-
-    if (image.decode && image.naturalWidth) {
-      await image.decode().catch(() => {});
-    }
-  });
-
-  await Promise.race([
-  Promise.allSettled([fontsReady, ...imagesReady]),
-  new Promise(resolve => setTimeout(resolve, 10000))
-]);
-
-  // Даём браузеру применить шрифты и пересчитать расположение.
-  await new Promise(resolve => {
-    requestAnimationFrame(() => requestAnimationFrame(resolve));
-  });
-
-  loader.classList.add('is-finished');
-  setTimeout(() => {
-    loader.hidden = true;
-  }, 550);
-}
+Promise.allSettled([fontsReady, ...imagesReady])
+  .then(() => window.showInvitation());
 
 prepareInvitation();  
 
