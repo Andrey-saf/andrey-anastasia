@@ -34,7 +34,10 @@ async function prepareInvitation() {
     }
   });
 
-  await Promise.allSettled([fontsReady, ...imagesReady]);
+  await Promise.race([
+  Promise.allSettled([fontsReady, ...imagesReady]),
+  new Promise(resolve => setTimeout(resolve, 10000))
+]);
 
   // Даём браузеру применить шрифты и пересчитать расположение.
   await new Promise(resolve => {
