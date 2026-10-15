@@ -1,12 +1,12 @@
-@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-500.woff') format('woff'); font-style: normal; font-weight: 500; font-display: swap; }
-@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: swap; }
-@font-face { font-family: 'ceremoniusthree'; src: url('../assets/ceremoniusthree-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'ceremoniusthree'; src: url('../assets/ceremoniusthree-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: swap; }
-@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-300.woff') format('woff'); font-style: normal; font-weight: 300; font-display: swap; }
-@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: block; }
+@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-500.woff') format('woff'); font-style: normal; font-weight: 500; font-display: block; }
+@font-face { font-family: 'oldstandart'; src: url('../assets/oldstandart-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: block; }
+@font-face { font-family: 'ceremoniusthree'; src: url('../assets/ceremoniusthree-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: block; }
+@font-face { font-family: 'ceremoniusthree'; src: url('../assets/ceremoniusthree-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: block; }
+@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-300.woff') format('woff'); font-style: normal; font-weight: 300; font-display: block; }
+@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: block; }
 /* Единственное начертание настоящего Oranienbaum: браузер синтезирует жирный вес
    из него, не подменяя заголовки другими шрифтами из старых Tilda-алиасов. */
-@font-face { font-family: 'Wedding Oranienbaum'; src: url('../assets/oranienbaum-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-500.woff') format('woff'); font-style: normal; font-weight: 500; font-display: swap; }
-@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Wedding Oranienbaum'; src: url('../assets/oranienbaum-400.woff') format('woff'); font-style: normal; font-weight: 400; font-display: block; }
+@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-500.woff') format('woff'); font-style: normal; font-weight: 500; font-display: block; }
+@font-face { font-family: 'oranienbaum'; src: url('../assets/oranienbaum-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: block; }
