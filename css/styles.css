@@ -268,3 +268,13 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   margin: 26px auto;
   text-align: center;
 }
+
+.dialog-close {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dialog-close:focus:not(:focus-visible) {
+  outline: none;
+}
