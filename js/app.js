@@ -55,7 +55,7 @@ Promise.allSettled([fontsReady, ...imagesReady])
     const url = new URL(primaryMusicSource, location.href);
     // Обходим закешированный 404, если MP3 появился после первого открытия сайта.
     url.searchParams.set('music', retry ? String(Date.now()) : 'local-mp3-3');
-    audio.preload = 'metadata';
+    audio.preload = 'none';
     audio.src = url.href;
   }
   prepareMusicSource();
