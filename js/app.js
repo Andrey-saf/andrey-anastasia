@@ -387,4 +387,34 @@ while (textWalker.nextNode()) {
     '$1$2\u00A0'
   );
 }
+
+
+
+
+  function fitWelcomeTitle() {
+  const dear = document.querySelector('.welcome-title .script');
+  const family = document.querySelector('.welcome-family');
+  if (!dear || !family) return;
+
+  // Сначала проверяем исходные размеры из CSS.
+  dear.style.removeProperty('font-size');
+  family.style.removeProperty('font-size');
+
+  const dearSize = parseFloat(getComputedStyle(dear).fontSize);
+  const familySize = parseFloat(getComputedStyle(family).fontSize);
+  const a = dear.getBoundingClientRect();
+  const b = family.getBoundingClientRect();
+
+  // Небольшой запас сверх требуемых 16 px.
+  const scale = (b.right - a.left - 18) / (a.width + b.width);
+
+  if (scale > 0 && scale < 1) {
+    dear.style.fontSize = `${dearSize * scale}px`;
+    family.style.fontSize = `${familySize * scale}px`;
+  }
+}
+
+fitWelcomeTitle();
+window.addEventListener('resize', fitWelcomeTitle);
+document.fonts.ready.then(fitWelcomeTitle);
 })();
