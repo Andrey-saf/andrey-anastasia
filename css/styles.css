@@ -72,10 +72,10 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .welcome-copy { margin-inline: auto; text-align: left; }
 .welcome-copy + .welcome-copy { margin-top: 24px; }
 .venue-info { display: block; margin-top: 40px; }
-.wedding-date { font-family: var(--title-font); font-weight: 700; font-size: clamp(30px, 8vw, 44px); line-height: 1.05; text-transform: uppercase; letter-spacing: normal; }
+.wedding-date { font-family: var(--title-font); font-weight: 700; font-size: clamp(26px, 8vw, 40px); line-height: 1.05; text-transform: uppercase; letter-spacing: normal; }
 .venue-details { width: 68%; margin: 22px 0 0 auto; }
-.venue-details h3 { font-family: var(--title-font); font-size: clamp(30px, 8vw, 44px); font-weight: 700; line-height: 1.08; text-transform: uppercase; letter-spacing: normal; }
-.venue-details p { font-size: 14px; line-height: 1.45; margin-top: 14px; letter-spacing: var(--caps-tracking); }
+.venue-details h3 { font-family: var(--title-font); font-size: clamp(26px, 8vw, 40px); font-weight: 700; line-height: 1.08; text-transform: uppercase; letter-spacing: normal; }
+.venue-details p { font-size: 12px; line-height: 1.45; margin-top: 14px; letter-spacing: var(--caps-tracking); }
 .venue-details .text-link { margin-top: 16px; padding-inline: 15px; font-size: 9px; background: var(--cream); color: var(--rose); }
 .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; max-width: 100%; border: 0; border-radius: 999px; padding: 11px 22px; background: var(--rose); color: var(--cream); font-size: 10px; line-height: 1.4; text-align: center; text-transform: uppercase; text-decoration: none; letter-spacing: var(--caps-tracking); }
 .text-link:hover { filter: brightness(0.96); }
