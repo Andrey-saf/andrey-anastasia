@@ -257,3 +257,18 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   position: relative;
   left: -10px;
 }
+
+.venue-details {
+  position: relative;
+  left: -10px;
+  text-align: left;
+}
+
+.dress-copy {
+  margin: 26px auto;
+  text-align: center;
+}
+
+.references-button {
+  margin-top: 0;
+}
