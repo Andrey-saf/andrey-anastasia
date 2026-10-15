@@ -25,8 +25,6 @@ const imagesReady = [
 Promise.allSettled([fontsReady, ...imagesReady])
   .then(() => window.showInvitation());
 
-prepareInvitation();  
-
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !reducedMotion) {
     const observer = new IntersectionObserver(entries => {
