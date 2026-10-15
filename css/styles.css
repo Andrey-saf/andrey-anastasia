@@ -252,3 +252,8 @@ fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 .loader-overlay {
   transition: opacity 0.5s ease;
 }
+
+.welcome-family {
+  position: relative;
+  left: -10px;
+}
